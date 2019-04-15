@@ -1,0 +1,16 @@
+/* cacheid:f8ad40afea7597f4fc5ed071ee999cb00 */
+.jbzoo .price-calc {
+  width: 100%;
+}
+.jbzoo .price-calc table {
+  width: 250px;
+}
+.jbzoo .price-calc td {
+  padding-bottom: 24px;
+}
+.jbzoo .price-calc .clac-label {
+  width: 25%;
+  font-weight: bold;
+  vertical-align: top;
+  padding: 0.5em;
+}

@@ -1,0 +1,536 @@
+@media screen and (min-width:240px) and (max-width:1200px){
+	body, .top-inner, .header-inner, .nav-collapse, .container, .latest_products img, .latest_products .buttons a, .latest_products .buttons, .acysubbuttons .button, .on-slide, .footer-inner, .on-footer-in, .katalog-nav .menu, .jbprice-value, .related-block h2{
+		width: 100%;
+	}
+    .header-inner{
+        justify-content: space-around;
+    }
+	.tel, .time{
+		right: 10px;
+	}
+	.go-cart {
+
+	}
+    .geo-top{
+        margin-left: 10px;
+    }
+	.navigation {
+		margin-right: 10px;
+	}
+	.body {
+		padding-top: 0;
+		overflow-x: hidden;
+	}
+	.container{
+		box-sizing: border-box;
+		padding: 0 10px !important;
+	}
+	.block1-4{
+		width: 24%;
+	}
+	.block1-3{
+		width: 32.9%;
+	}
+	.block1-2{
+		width: 100%;
+	}
+	.block1-5{
+		width: 19.6%;
+	}
+	.on-footer{
+		height: auto;
+		margin-top: 40px;
+	}
+	.foot1, .foot2, .foot3, .foot4{
+		box-sizing: border-box;
+		width: 44%;
+		margin: 10px 20px;
+		padding: 0;
+	}
+	.copyright{
+		margin-left: 10px;
+	}
+	.developer{
+		margin-right: 10px;
+	}
+	.row-fluid .span9 {
+		width: 68%;
+	}
+	.raions, .more-map{
+		vertical-align: middle;
+		width: 49%;
+	}
+	.more-map a {
+		bottom: auto;
+		right: 0;
+		left: 0;
+		text-align: center;
+		top: 70%;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+	.footer-in-content {
+		width: 100%;
+	}
+	.teaser-price {
+		margin: 10px auto;
+		display: block;
+	}
+	.teaser-quant, .teaser-weight{
+		display: inline-block;
+		vertical-align: top;
+		width: 49%;
+	}
+	.teaser-param{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 3px 10px;
+		background: #ebecf1;
+		margin-top: 2px;
+	}
+	.teaser-quant{
+		border: none;
+		text-align: left;
+	}
+	.jbzoo .items .jbzoo-item{
+		margin: 8px !important;
+	}
+	.jsAddToCart {
+
+	}
+	.block1, .block2 {
+		box-sizing: border-box;
+		width: 48.4%;
+	}
+	.related-price .jbprice-value {
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	.related-price .jbbutton.green {
+		width: 100%;
+	}
+	.related-price .jbprice-buttons{
+		width: 100%;
+	}
+	.list-area li {
+		width: 33%;
+	}
+	.kontakt {
+		width: 32%;
+	}
+	.forma-vakansii img {
+		height: auto;
+		width: 45%;
+	}
+	.block3-12 {
+		width: 24.6%;
+	}
+	.m-block .block-content{
+		height: 149px;
+	}
+	.block2-10 {
+		width: 19.6%;
+	}
+	.block2-10.m-block .block-content {
+		height: 120px;
+	}
+	.copyright {
+		float: none;
+	}
+	.footer-inner {
+		padding: 1px 0;
+	}
+	.katalog-nav .menu{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	.jbprice-value{
+		box-sizing: border-box;
+	}
+	.jbprice-buttons{
+		width: 100%;
+	}
+	.jbzoo .jbbutton.green{
+		max-width: 100%;
+		width: 100%;
+	}
+	.full-price .jbbutton.green{
+		width: auto;
+		margin-top: 10px;
+	}
+	.teaser-image{
+		height: auto;
+	}
+	.related-block h2{
+		box-sizing: border-box;
+	}
+	.akcia-text {
+		width: calc(100% - 325px);
+	}
+}
+@media screen and (max-width:940px){
+	.menu-mob, .call{
+		display: block;
+		width: 35px;
+		height: 35px;
+		background-size: 35px !important;
+		cursor: pointer;
+		z-index: 9;
+		margin: 0 10px;
+	}
+	.menu-mob{
+		background: url(/images/menu.png) no-repeat;
+		right: 20px;
+	}
+	.call {
+		 background: url(/images/call.png) no-repeat;
+		 right: 90px;
+	 }
+	.go-cart {
+		background-size: 35px;
+		margin: 0 10px;
+	}
+	.tochka {
+		right: 26px;
+	}
+	.header-scroll .go-cart {
+		display: block;
+	}
+	.navigation {
+		position: fixed;
+		width: 100%;
+		z-index: 999;
+		padding: 0;
+	}
+	.nav-header {
+		padding: 10px 0;
+	}
+	.header-scroll .navigation {
+		top: 100px;
+		left: auto;
+	}
+	.navigation .nav{
+		background: #444;
+		z-index: 999;
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.navigation .nav li{
+		display: block !important;
+		text-align: center;
+		float: none !important;
+	}
+	.navigation .nav a{
+		text-align: center !important;
+		border-top: 1px solid #3e3e3e;
+	}
+	.navigation .nav>li>a{
+		height: auto;
+		line-height: inherit;
+		padding: 10px 5px !important;
+	}
+	.navigation .nav-child {
+		position: relative;
+		float: none;
+		padding: 0;
+	}
+	.navigation .nav > li > .nav-child:before, .navigation .nav > li > .nav-child:after{
+		content: none;
+	}
+	.navigation .nav-child a {
+		text-align: center !important;
+		border-top: 1px solid #2ba966;
+	}
+	.row-fluid .span9{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.header-scroll .header-inner {
+		width: 100%;
+	}
+	.header-inner {
+		justify-content: space-between;
+		height: 60px;
+		position: fixed;
+		z-index: 99999;
+		background: #fff;
+		box-shadow: 0px 2px 2px #636363;
+		top: 0;
+	}
+	.tel{
+		display: none;
+	}
+	.top-block {
+		height: auto;
+	}
+	.top-block-content {
+		width: 100%;
+	}
+	.top-block .uk-slidenav-position {
+		top: auto;
+		margin-top: 53px;
+		padding-top: 25px;
+	}
+	ul.uk-slideshow{
+
+	}
+	.raions, .more-map {
+		width: 100%;
+		text-align: center;
+	}
+	.dostavka li{
+		width: 145px;
+	}
+	.teaser-quant, .teaser-weight {
+		width: 48%;
+	}
+	.list-area li {
+		width: 49%;
+	}
+	.kontakt {
+		width: 48%;
+	}
+	.select-city2{
+		display: none;
+	}
+	.forma-vakansii img {
+		width: 100%;
+	}
+	.zapolnit-anketu {
+		margin: 40px auto;
+		display: block;
+		width: 280px;
+	}
+	.forma-vakansii-block {
+		width: 75%;
+	}
+	.head-social, .head-links, .top-time, .top-tel{
+		display: none;
+	}
+	.mobile-head{
+		display: flex;
+		align-items: center;
+	}
+	.logo{
+		padding-left: 10px;
+	}
+	.logo img {
+		height: 40px;
+	}
+	.m-block .block-content{
+		margin: 1px 0;
+	}
+	body{
+		margin-top: 100px;
+	}
+}
+@media screen and (max-width:768px){
+	.slider{
+
+	}
+	.header{
+
+	}
+	.logo img {
+		height: 38px;
+	}
+
+	.row-fluid .sblock4 {
+		width: 50%;
+	}
+	.foot1, .foot2{
+		width: 40%;
+	}
+	.block1-3 {
+		width: 32.8%;
+	}
+	.block1-5 {
+		width: 28%;
+		margin-right: 20px;
+	}
+	.foot1, .foot2, .foot3, .foot4 {
+		width: 40%;
+	}
+	.copyright, .developer{
+		float: none;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+	}
+	.developer{
+		margin-bottom: 15px;
+	}
+	.footer-inner{
+		height: auto;
+	}
+	.block1-4 {
+		width: 49%;
+	}
+	.jbzoo .width25 {
+		width: 49% !important;
+	}
+	.teaser-image img{
+		width: 100%;
+	}
+	.jbzoo .quantity-wrapper .minus .jbbutton {
+		left: -104px !important;
+	}
+	.jbzoo .jbprice-quantity {
+		width: 156px !important;
+		margin-left: 10px !important;
+	}
+	.jbzoo .width20, .popular .span1-5{
+		width: 49% !important;
+		padding: 5px;
+		margin: 0 !important;
+		box-sizing: border-box;
+	}
+	.related-image{
+		text-align: center;
+	}
+	.related-block .jbzoo-item{
+		margin: 0 !important;
+	}
+	.list-area li {
+		width: 100%;
+	}
+	.kontakt {
+		width: 100%;
+		margin: 5px 0;
+	}
+	.city-form-content {
+		width: 90%;
+		box-sizing: border-box;
+		overflow-y: auto;
+		height: 100%;
+	}
+	.city {
+		margin: 10px 20px;
+		display: inline-flex;
+		padding: 0 0 5px;
+	}
+	.block3-12, .block2-10{
+		width: 49.6%;
+	}
+	.block2-10.m-block .block-content {
+		height: 149px;
+	}
+	.jbzoo .width16 {
+		width: 32.3% !important;
+	}
+	.related-image {
+		height: auto;
+	}
+	.block1, .block2 {
+		width: 100%;
+		text-align: center;
+		margin: 0;
+	}
+	.jbzoo .jbprice-quantity {
+		width: 100% !important;
+		margin: 10px 0px 0px -26px !important;
+	}
+	.jbzoo .quantity-wrapper{
+		margin: 0 auto !important;
+	}
+	.jbzoo .quantity-wrapper .item-count-wrapper{
+		margin-left: 0;
+		width: auto !important;
+	}
+	.akcia-text{
+		width: 100%;
+		text-align: left;
+	}
+	.akcia{
+		text-align: center;
+	}
+	.akcia-img{
+		margin-bottom: 10px;
+	}
+}
+@media screen and (max-width:480px){
+	.foot1, .foot2, .foot3, .foot4{
+		width: 100%;
+		margin: 20px auto;
+		display: block;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	.row-fluid .sblock4 {
+		width: 100%;
+	}
+	.block1-5{
+		width: 42%;
+	}
+	.block1-3{
+		width: 32%;
+	}
+	.row-fluid .sblock3{
+		width: 100%;
+	}
+	.foot-map {
+		position: relative;
+		height: 300px;
+	}
+	.footer-in-content{
+		display: none;
+	}
+	.jbzoo .width25 {
+		width: 100% !important;
+	}
+	.slide_panel_wrap {
+		display: none;
+	}
+	.block1, .block2 {
+		width: 100%;
+	}
+	.related-block h2 span {
+		width: 226px;
+	}
+	.geo-top span{
+		display: none;
+	}
+	.geo-top {
+		font-size: 15px;
+		padding: 3px 0px 3px 25px;
+		background-size: 19px;
+		background-position: 0 3px;
+	}
+	.city-form-content {
+		padding: 38px 20px;
+	}
+	.slider{
+		display: none;
+	}
+	.block3-12, .block2-10 {
+		width: 100%;
+	}
+	.m-block .block-content, .block2-10.m-block .block-content{
+		height: auto;
+	}
+	.footer-inner {
+		height: auto;
+		padding: 1px 0;
+	}
+	.jbzoo .width16 {
+		width: 100% !important;
+		margin-bottom: 40px !important;
+	}
+	.jbzoo .jbbutton {
+		max-width: 100% !important;
+	}
+	.akcia-img{
+		width: 100%;
+	}
+	.select-city{
+		display: none;
+	}
+}
+@media screen and (min-width:480px) and (max-width:760px){
+	
+}
+@media screen and (min-width:240px) and (max-width:480px){
+
+}
