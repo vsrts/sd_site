@@ -7,7 +7,8 @@ class ModSliderHelper{
         $main_db = $config->db;
 
         $db =JFactory::getDBO();
-        $database_name = "sushi";
+        $vs = new VslibVs();
+        $database_name = $vs->getDbName();
 
         if ($db->select($database_name)) {
 

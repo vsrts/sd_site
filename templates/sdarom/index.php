@@ -124,6 +124,7 @@ else
 {
 	$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 } */
+
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">

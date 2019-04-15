@@ -9,7 +9,8 @@ class ModCityHelper{
         $main_db = $config->db;
 
         $db =JFactory::getDBO();
-        $database_name = "host1560631_sushi";
+        $vs = new VslibVs();
+        $database_name = $vs->getDbName();
 
         if ($db->select($database_name)) {
 
