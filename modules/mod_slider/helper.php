@@ -7,15 +7,15 @@ class ModSliderHelper{
         $main_db = $config->db;
 
         $db =JFactory::getDBO();
-        $database_name = "host1560631_sushi";
+        $database_name = "sushi";
 
         if ($db->select($database_name)) {
 
             $query = "SELECT image, code
                         FROM slides
-                        LEFT JOIN slide_only ON slide_only.slide_id=slides.id
-                        LEFT JOIN cities ON slide_only.city_id=cities.id
-                        WHERE slide_only.city_id = 0 OR cities.subdomain = '" . $params . "' ORDER BY sort ASC"
+                        LEFT JOIN slides_cities ON slides_cities.slides_id=slides.id
+                        LEFT JOIN cities ON slides_cities.cities_id=cities.id
+                        WHERE cities.subdomain = '" . $params . "' ORDER BY sort ASC"
 ;
 
             $db->setQuery($query);
