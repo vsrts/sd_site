@@ -226,18 +226,17 @@ else
 				<jdoc:include type="modules" name="position-0" style="none" />
 
 		</div>
-        <?php
 
-        
 
-        ?>
+
 		<div class="slide_panel_wrap">	
 			<div class="slide_panel">
 				<div class="open"><img src="/images/cart.png"></div>
 				<jdoc:include type="modules" name="cart" />
 			</div>
 		</div>	
-	</header>	
+	</header>
+    <jdoc:include type="modules" name="test" />
 	<?php if ($this->countModules('banner')) : ?>
 	<div class="slider">
 		<div class="slider-inner">
@@ -245,6 +244,9 @@ else
 		</div>
 	</div>
 	<?php endif; ?>
+    <?php
+    echo $point->phone;
+    ?>
 	<?php if ($this->countModules('position-8')) : ?>
 		<!-- Begin Sidebar -->
 		<div class="katalog-nav">

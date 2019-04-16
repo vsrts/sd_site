@@ -2,46 +2,47 @@
 
 class VslibVs
 {
-    private $dbName = "sushi";
+    private $dbName = "sushi"; //Таблица в БД
     public $domain = "ростов.суши-даром.рф";
     //public $domain = idn_to_utf8($_SERVER['SERVER_NAME']);
 
+    //Получаем поддомен сайта
     public function getSubdomain(){
-       return explode('.', $this->domain);
+        $subdomain = explode('.', $this->domain);
+        return $subdomain[0];
     }
 
     public function getdbName(){
         return $this->dbName;
     }
 
-    private function getData(){
-        $config = new JConfig();
-        $main_db = $config->db;
+    //Получаем результат запроса где $select это sql запрос а $type это метод получения результата
+//    private function getData($select, $type){
+//        $config = new JConfig();
+//        $main_db = $config->db;
+//
+//        $db =JFactory::getDBO();
+//        if ($db->select($this->dbName)) {
+//            $query = $select;
+//            $db->setQuery($query);
+//            switch ($type){
+//                case loadResult:
+//                    $results = $db->loadResult();
+//                    break;
+//            }
+//            $db->select($main_db);
+//            return $results;
+//        }
+//    }
 
-        $db =JFactory::getDBO();
-        $database_name = $this->dbName;
+    //получаем id города по его поддомену
+//    public function getCityId(){
+//            $select = "SELECT id
+//                        FROM cities
+//                        WHERE subdomain = '" . $this->getSubdomain() . "'";
+//            $type = "loadResult";
+//            return $this->getData($select, $type);
+//    }
 
-        if ($db->select($database_name)) {
-
-            $query = $db->getQuery(true);
-            $query->select('*')
-                ->from('points')
-                ->order('name ASC');
-
-            $db->setQuery($query);
-            $results = $db->loadObjectList();
-
-            $db->select($main_db);
-
-            return $results;
-        }
-    }
-    public function getPoints(){
-        $select = "select('*')
-            ->from('points')
-            ->order('name ASC')";
-
-        $this->getData();
-    }
 
 }

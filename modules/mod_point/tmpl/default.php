@@ -2,26 +2,31 @@
 // No direct access
 defined('_JEXEC') or die; ?>
 
-<div class="city-form">
-  <div class="city-form-block">
-      <div class="city-form-content">
-        <p class="citytext">
+<div class="point-form">
+  <div class="point-form-block">
+      <div class="point-form-content">
+        <p class="pointtext">
             Выберите город:
         </p>
-        <div class="cities">
+        <div class="points">
+        <?php
+            if(isset($_POST['point'])) {
+                setcookie("point",(int)$_POST['point'], time()+3600); //Записать куку
+            }
+            $select = array();
+            $option = isset($_POST['point']) ? (int)$_POST['point'] : (isset($_COOKIE["point"]) ? (int)$_COOKIE["rario"] : 1);
+            $select[$option] = 'checked';
+            ?>
+            <form method="post">
+                <input name="point" type="radio" value="1" onchange="this.form.submit()" <?=$select[1]?>>Тест
+                <input name="point" type="radio" value="2" onchange="this.form.submit()" <?=$select[2]?>>Тест
+                <input name="point" type="radio" value="3" onchange="this.form.submit()" <?=$select[3]?>>Тест
+                <input name="point" type="radio" value="4" onchange="this.form.submit()" <?=$select[4]?>>Тест
+            </form>
+        <?php
+                $point = $points[$_POST['point']];
 
-                <?php
-                $vs = new VslibVs();
-                $subdomain = $vs->getSubdomain();
-                foreach($cities as $city){
-                    if($city->subdomain == 'новороссийск'){
-                        echo '<a href="http://суши-даром.рф?from=select" class="city citylink">' . $city->name . '</a>';
-                    }else if($city->subdomain != $subdomain[0]){
-                        echo '<a href="http://' . $city->subdomain . '.суши-даром.рф?from=select" class="city citylink">' . $city->name . '</a>';
-                    }else{
-                        echo '<a class="city cityclose cityin">' . $city->name . '</a>';
-                    }
-                }
+                echo $point->phone;
                 ?>
 
         </div>

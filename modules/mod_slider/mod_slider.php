@@ -15,7 +15,7 @@ require_once dirname(__FILE__) . '/helper.php';
 $vs = new VslibVs();
 $subdomain = $vs->getSubdomain();
 
-$slides = modSliderHelper::getSlider($subdomain[0]);
+$slides = modSliderHelper::getSlider($subdomain);
 
 
 require JModuleHelper::getLayoutPath('mod_slider');

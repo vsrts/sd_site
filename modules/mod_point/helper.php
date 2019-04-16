@@ -1,9 +1,7 @@
 <?php
 
 class ModPointHelper{
-    public static function getPoints($params){
-//        $cities = $params->get('cities');
-//        return $cities;
+    public static function getPoints(){
 
         $config = new JConfig();
         $main_db = $config->db;
@@ -12,20 +10,25 @@ class ModPointHelper{
         $vs = new VslibVs();
         $database_name = $vs->getDbName();
 
-        if ($db->select($database_name)) {
+       if ($db->select($database_name)) {
 
             $query = $db->getQuery(true);
-            $query->select('*')
-                ->from('points')
-                ->order('name ASC');
+            $query->select('id')
+                ->from('cities')
+                ->where("subdomain = '" . $vs->getSubdomain() . "'");
+           $db->setQuery($query);
+           $cityId = $db->loadResult();
 
-            $db->setQuery($query);
-            $results = $db->loadObjectList();
+           $query = $db->getQuery(true);
+           $query->select('*')
+               ->from('points')
+               ->where("city = '" . $cityId . "'");
+           $db->setQuery($query);
+           $results = $db->loadObjectList();
 
-            $db->select($main_db);
+           $db->select($main_db);
 
-            return $results;
-
+           return $results;
 
         }
 
