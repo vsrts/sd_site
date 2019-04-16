@@ -16,7 +16,7 @@ defined('_JEXEC') or die; ?>
                 foreach($cities as $city){
                     if($city->subdomain == 'новороссийск'){
                         echo '<a href="http://суши-даром.рф?from=select" class="city citylink">' . $city->name . '</a>';
-                    }else if($city->subdomain != $subdomain[0]){
+                    }else if($city->subdomain != $subdomain){
                         echo '<a href="http://' . $city->subdomain . '.суши-даром.рф?from=select" class="city citylink">' . $city->name . '</a>';
                     }else{
                         echo '<a class="city cityclose cityin">' . $city->name . '</a>';
