@@ -144,6 +144,7 @@ else
 	. ($params->get('fluidContainer') ? ' fluid' : '');
 	echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
+
 	<!-- Body -->
 
 	<header class="header" role="banner">
@@ -155,29 +156,29 @@ else
                 </div>
                 <div class="geo-top">
                     <?php
-                    if(isset($_POST['select'])) {
-                        setcookie("select",(int)$_POST['select'], time()+3600); //Записать куку
-                    }
-                    $select = array(
-                        1=>'',
-                        2=>''
-                    );
-                    $cityname = array(
-                        1=>'default',
-                        2=>'taganrogskaya',
-                    );
-                    $option = isset($_POST['select']) ? (int)$_POST['select'] : (isset($_COOKIE["select"]) ? (int)$_COOKIE["select"] : 1);
-                    $select[$option] = 'selected';
-                    $cityname = $cityname[$option];
+//                    if(isset($_POST['select'])) {
+//                        setcookie("select",(int)$_POST['select'], time()+3600); //Записать куку
+//                    }
+//                    $select = array(
+//                        1=>'',
+//                        2=>''
+//                    );
+//                    $cityname = array(
+//                        1=>'default',
+//                        2=>'taganrogskaya',
+//                    );
+//                    $option = isset($_POST['select']) ? (int)$_POST['select'] : (isset($_COOKIE["select"]) ? (int)$_COOKIE["select"] : 1);
+//                    $select[$option] = 'selected';
+//                    $cityname = $cityname[$option];
                     ?>
-                    <form method="post">
+                   <!-- <form method="post">
                         <select class="select-city" id="selectcity" name="select" onchange="this.form.submit()">
                             <option value="1" <?=$select[1]?>>бульвар Комарова 20</option>
                             <option value="2" <?=$select[2]?>>ул. Таганрогская 114</option>
                             <option value="3" <?=$select[3]?>>ул. Темерницкая 41б</option>
                             <option value="4" <?=$select[4]?>>ул. Малиновского 38/29</option>
                         </select>
-                    </form>
+                    </form>-->
 
                 </div>
 				<?php if ($this->countModules('position-1')) : ?>
@@ -197,6 +198,10 @@ else
 			</div>
 		</div>
 		<div class="header-inner clearfix">
+            <?php
+            $pointId = isset($_POST['point']) ? (int)$_POST['point'] : (isset($_COOKIE["point"]) ? (int)$_COOKIE["point"] : 0);
+            print_r($pointId);
+            ?>
 			<a class="logo" href="<?php echo $this->baseurl; ?>/">
 				<img src="/images/logo.png" alt="Суши-Даром">
 			</a>
