@@ -6,9 +6,16 @@
  * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
-
 defined('_JEXEC') or die;
+
+//Получаем данные точки
+$pointId = VslibVs::selectPoint();
+$vs = new VslibVs();
+
+$pointData = $vs->getPoint($pointId);
+echo "<pre>";
+print_r($pointData);
+echo "</pre>";
 
 $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
@@ -50,39 +57,6 @@ $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/
 $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/custom.css');
 $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/mobile.css');
 
-/* // Use of Google Font
-if ($this->params->get('googleFont'))
-{
-	$doc->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
-	$doc->addStyleDeclaration("
-	h1, h2, h3, h4, h5, h6, .site-title {
-		font-family: '" . str_replace('+', ' ', $this->params->get('googleFontName')) . "', sans-serif;
-	}");
-}
-
-// Template color
-if ($this->params->get('templateColor'))
-{
-	$doc->addStyleDeclaration("
-	body.site {
-		border-top: 3px solid " . $this->params->get('templateColor') . ";
-		background-color: " . $this->params->get('templateBackgroundColor') . ";
-	}
-	a {
-		color: " . $this->params->get('templateColor') . ";
-	}
-	.nav-list > .active > a,
-	.nav-list > .active > a:hover,
-	.dropdown-menu li > a:hover,
-	.dropdown-menu .active > a,
-	.dropdown-menu .active > a:hover,
-	.nav-pills > .active > a,
-	.nav-pills > .active > a:hover,
-	.btn-primary {
-		background: " . $this->params->get('templateColor') . ";
-	}");
-} */
-
 // Check for a custom CSS file
 $userCss = JPATH_SITE . '/templates/' . $this->template . '/css/user.css';
 
@@ -90,41 +64,6 @@ if (file_exists($userCss) && filesize($userCss) > 0)
 {
 	$this->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/user.css');
 }
-
-/* // Load optional RTL Bootstrap CSS
-JHtml::_('bootstrap.loadCss', false, $this->direction);
-
-// Adjusting content width
-if ($this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span6";
-}
-elseif ($this->countModules('position-7') && !$this->countModules('position-8'))
-{
-	$span = "span9";
-}
-elseif (!$this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span9";
-}
-else
-{
-	$span = "span12";
-}
-
-// Logo file or site title param
-if ($this->params->get('logoFile'))
-{
-	$logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
-}
-elseif ($this->params->get('sitetitle'))
-{
-	$logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($this->params->get('sitetitle'), ENT_COMPAT, 'UTF-8') . '</span>';
-}
-else
-{
-	$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
-} */
 
 ?>
 <!DOCTYPE html>
@@ -155,30 +94,6 @@ else
                     <a class="select-gorod" id="select-gorod">Выбрать город</a>
                 </div>
                 <div class="geo-top">
-                    <?php
-//                    if(isset($_POST['select'])) {
-//                        setcookie("select",(int)$_POST['select'], time()+3600); //Записать куку
-//                    }
-//                    $select = array(
-//                        1=>'',
-//                        2=>''
-//                    );
-//                    $cityname = array(
-//                        1=>'default',
-//                        2=>'taganrogskaya',
-//                    );
-//                    $option = isset($_POST['select']) ? (int)$_POST['select'] : (isset($_COOKIE["select"]) ? (int)$_COOKIE["select"] : 1);
-//                    $select[$option] = 'selected';
-//                    $cityname = $cityname[$option];
-                    ?>
-                   <!-- <form method="post">
-                        <select class="select-city" id="selectcity" name="select" onchange="this.form.submit()">
-                            <option value="1" <?=$select[1]?>>бульвар Комарова 20</option>
-                            <option value="2" <?=$select[2]?>>ул. Таганрогская 114</option>
-                            <option value="3" <?=$select[3]?>>ул. Темерницкая 41б</option>
-                            <option value="4" <?=$select[4]?>>ул. Малиновского 38/29</option>
-                        </select>
-                    </form>-->
 
                 </div>
 				<?php if ($this->countModules('position-1')) : ?>
@@ -198,10 +113,7 @@ else
 			</div>
 		</div>
 		<div class="header-inner clearfix">
-            <?php
-            $pointId = isset($_POST['point']) ? (int)$_POST['point'] : (isset($_COOKIE["point"]) ? (int)$_COOKIE["point"] : 0);
-            print_r($pointId);
-            ?>
+
 			<a class="logo" href="<?php echo $this->baseurl; ?>/">
 				<img src="/images/logo.png" alt="Суши-Даром">
 			</a>
@@ -232,8 +144,6 @@ else
 
 		</div>
 
-
-
 		<div class="slide_panel_wrap">	
 			<div class="slide_panel">
 				<div class="open"><img src="/images/cart.png"></div>
@@ -249,9 +159,7 @@ else
 		</div>
 	</div>
 	<?php endif; ?>
-    <?php
-    echo $point->phone;
-    ?>
+
 	<?php if ($this->countModules('position-8')) : ?>
 		<!-- Begin Sidebar -->
 		<div class="katalog-nav">

@@ -1,6 +1,15 @@
 <?php
 // No direct access
-defined('_JEXEC') or die; ?>
+defined('_JEXEC') or die;
+
+$option = VslibVs::selectPoint();
+$select[$option] = 'checked';
+
+        echo "<pre>";
+        var_dump($option);
+ //       print_r($points);
+        echo "</pre>";
+?>
 
 <div class="point-form">
   <div class="point-form-block">
@@ -9,27 +18,11 @@ defined('_JEXEC') or die; ?>
             Выберите город:
         </p>
         <div class="points">
-        <?php
-            if(isset($_POST['point'])) {
-                setcookie("point",(int)$_POST['point'], time()+3600); //Записать куку
-            }
-
-            $option = isset($_POST['point']) ? (int)$_POST['point'] : (isset($_COOKIE["point"]) ? (int)$_COOKIE["point"] : 0);
-            $select[$option] = 'checked';
-        ?>
             <form method="post">
                 <?php foreach($points as $point) : ?>
-                <input name="point" type="radio" value="<?= $point->id; ?>" onchange="this.form.submit()" <?= $select[$point->id]; ?>><?= $point->address; ?>
+                <input name="point" type="radio" value="<?= $point->id; ?>" onchange="this.form.submit()" <?= $select[$point->id]; ?>>                <?= $point->address; ?>
                 <?php endforeach; ?>
             </form>
-
-        <?php
-        echo "<pre>";
-        var_dump($option);
-        print_r($points);
-        echo "</pre>";
-        ?>
-
         </div>
       </div>
   </div>

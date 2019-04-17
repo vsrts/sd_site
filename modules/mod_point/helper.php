@@ -22,7 +22,7 @@ class ModPointHelper{
            $query = $db->getQuery(true);
            $query->select('*')
                ->from('points')
-               ->where("city = '" . $cityId . "'");
+               ->where("city = '" . $cityId . "' AND status = 1");
            $db->setQuery($query);
            $results = $db->loadObjectList();
 

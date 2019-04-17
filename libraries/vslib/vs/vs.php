@@ -17,32 +17,45 @@ class VslibVs
     }
 
     //Получаем результат запроса где $select это sql запрос а $type это метод получения результата
-//    private function getData($select, $type){
-//        $config = new JConfig();
-//        $main_db = $config->db;
-//
-//        $db =JFactory::getDBO();
-//        if ($db->select($this->dbName)) {
-//            $query = $select;
-//            $db->setQuery($query);
-//            switch ($type){
-//                case loadResult:
-//                    $results = $db->loadResult();
-//                    break;
-//            }
-//            $db->select($main_db);
-//            return $results;
-//        }
-//    }
+    private function getData($select, $type){
+        $config = new JConfig();
+        $main_db = $config->db;
 
-    //получаем id города по его поддомену
-//    public function getCityId(){
-//            $select = "SELECT id
-//                        FROM cities
-//                        WHERE subdomain = '" . $this->getSubdomain() . "'";
-//            $type = "loadResult";
-//            return $this->getData($select, $type);
-//    }
+        $db =JFactory::getDBO();
+        if ($db->select($this->dbName)) {
+            $query = $select;
+            $db->setQuery($query);
+            switch ($type){
+                case loadResult:
+                    $results = $db->loadResult();
+                    break;
+
+                case loadObject:
+                    $results = $db->loadObject();
+                    break;
+            }
+            $db->select($main_db);
+            return $results;
+        }
+    }
+
+    //получаем данные точки по id
+    public function getPoint($id){
+            $select = "SELECT *
+                        FROM points
+                        WHERE id = '" . $id . "'";
+            $type = "loadObject";
+            return $this->getData($select, $type);
+    }
+
+    static public function selectPoint(){
+        //Определяем выбранную точку
+        if(isset($_POST['point'])) {
+            setcookie("point",(int)$_POST['point'], time()+3600); //Записать куку
+        }
+        $option = isset($_POST['point']) ? (int)$_POST['point'] : (isset($_COOKIE["point"]) ? (int)$_COOKIE["point"] : 0);
+        return $option;
+    }
 
 
 }
