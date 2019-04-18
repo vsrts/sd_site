@@ -43,7 +43,8 @@ class VslibVs
     public function getPoint($id){
             $select = "SELECT *
                         FROM points
-                        WHERE id = '" . $id . "'";
+                        JOIN cities ON cities.id=points.city
+                        WHERE points.id = '" . $id . "'";
             $type = "loadObject";
             return $this->getData($select, $type);
     }
@@ -57,5 +58,25 @@ class VslibVs
         return $option;
     }
 
+    public function getPoints(){
+
+        $select = "
+            SELECT id
+            FROM cities
+            where(subdomain = '" . $this->getSubdomain() . "')
+        ";
+        $type = "loadResult";
+        $cityId = $this->getData($select, $type);
+
+        $select = "
+            SELECT *
+            FROM points
+            where(city = '" . $cityId . "')
+        ";
+
+        $type = "loadObjectList";
+        return $this->getData($select, $type);
+
+    }
 
 }

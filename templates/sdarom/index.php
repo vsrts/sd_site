@@ -13,9 +13,6 @@ $pointId = VslibVs::selectPoint();
 $vs = new VslibVs();
 
 $pointData = $vs->getPoint($pointId);
-echo "<pre>";
-print_r($pointData);
-echo "</pre>";
 
 $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
@@ -90,11 +87,9 @@ if (file_exists($userCss) && filesize($userCss) > 0)
 		<div class="top-line">
 			<div class="top-inner">
                 <div class="geo-top2">
-                    г. Ростов-на-Дону
-                    <a class="select-gorod" id="select-gorod">Выбрать город</a>
-                </div>
-                <div class="geo-top">
-
+                    г. <?= $pointData->name; ?>,
+                    <span> <?= $pointData->address; ?></span>
+                    <a class="select-gorod" id="select-gorod">Изменить</a>
                 </div>
 				<?php if ($this->countModules('position-1')) : ?>
 					<nav class="navigation" role="navigation">
@@ -126,16 +121,19 @@ if (file_exists($userCss) && filesize($userCss) > 0)
                 <a href="https://www.instagram.com/sushidarom_rf/" class="to-insta" target="_blank"><span>sushidarom_rf</span></a>
             </div>
             <div class="top-time">
-                пн-чт <span class="allday" id="clock">с 10:00 - 23:00 </span><br>
-                пт-вс <span class="allday" id="clock2">с 10:00 - 24:00 </span>
+                <?= str_replace(',', '<br>', $pointData->time); ?>
             </div>
 			<div class="top-tel">
-				<span class="tel-kod">8(800)</span>555-82-06 <br> <!--<span class="tel-text">Сделайте заказ по телефону</span>-->
-                <span class="tel-kod">8(863)</span>229-69-46
+                <?php if($pointData->second_phone) : ?>
+                    <?= $pointData->phone; ?> <br> <!--<span class="tel-text">Сделайте заказ по телефону</span>-->
+                    <?= $pointData->second_phone; ?>
+                <?php else: ?>
+                    <?= $pointData->phone; ?><br> <span class="tel-text">Сделайте заказ по телефону</span>
+                <?php endif; ?>
 			</div>
             <div class="mobile-head">
                 <a href="/index.php?option=com_zoo&amp;controller=basket&amp;task=index" class="go-cart"><span class="tochka"></span></a>
-                <a class="call" href="tel:89883359505"></a>
+                <a class="call" href="tel:<?= $pointData->phone; ?>"></a>
                 <div class="menu-mob"></div>
             </div>
 
@@ -151,7 +149,6 @@ if (file_exists($userCss) && filesize($userCss) > 0)
 			</div>
 		</div>	
 	</header>
-    <jdoc:include type="modules" name="test" />
 	<?php if ($this->countModules('banner')) : ?>
 	<div class="slider">
 		<div class="slider-inner">
