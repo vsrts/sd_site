@@ -33,6 +33,10 @@ class VslibVs
                 case loadObject:
                     $results = $db->loadObject();
                     break;
+
+                case loadObjectList:
+                    $results = $db->loadObjectList();
+                    break;
             }
             $db->select($main_db);
             return $results;
@@ -70,9 +74,9 @@ class VslibVs
 
         $select = "
             SELECT *
-            FROM points
-            where(city = '" . $cityId . "')
-        ";
+                FROM points
+                JOIN cities ON cities.id=points.city
+                WHERE points.city = '" . $cityId . "'";
 
         $type = "loadObjectList";
         return $this->getData($select, $type);

@@ -1,0 +1,17 @@
+<?php
+defined('_JEXEC') or die;
+function sourcerer_php_3557f808475359dbf7d2a6a4b636d979($src_variables){
+$app = $mainframe = JFactory::getApplication();
+$document = $doc = JFactory::getDocument();
+$database = $db = JFactory::getDbo();
+$user = JFactory::getUser();
+$Itemid = $app->input->getInt('Itemid');
+if (is_array($src_variables)) {foreach ($src_variables as $src_key => $src_value) {${$src_key} = $src_value;}}
+//Получаем данные точек
+$vs = new VslibVs();
+
+$points = $vs->getPoints(); ?>
+
+<?php foreach($points as $point){;;
+return get_defined_vars();
+;}
