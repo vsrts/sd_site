@@ -31,6 +31,11 @@ class JBEventBasket extends JBEvent
      */
     public static function saved($event)
     {
+        $pointId = VslibVs::selectPoint();
+        $vs = new VslibVs();
+
+        $pointData = $vs->getPoint($pointId);
+
         self::app()->jbevent->fireElements($event);
         $subject = $event->getSubject();
 
@@ -66,6 +71,9 @@ class JBEventBasket extends JBEvent
         $param['phone'] = $phone;	//телефон
         $param['descr']	= "Заказ с сайта! " . $desc; 		//комментарий
         $param['name']	= $name; 		//имя клиента
+        if($pointData->filial){
+            $param['affiliate'] = $pointData->filial;
+        }
 
 //подготовка запроса
         foreach ($param as $key => $value) {

@@ -30,6 +30,10 @@ class VslibVs
                     $results = $db->loadResult();
                     break;
 
+                case loadColumn:
+                    $results = $db->loadColumn();
+                    break;
+
                 case loadObject:
                     $results = $db->loadObject();
                     break;
@@ -80,7 +84,35 @@ class VslibVs
 
         $type = "loadObjectList";
         return $this->getData($select, $type);
-
     }
 
+    public function getPointCategories($pointId){
+        $select = "SELECT categories.name
+                    FROM categories 
+                    JOIN point_categories ON point_categories.category_id=categories.id
+                    WHERE point_categories.point_id = '" . $pointId . "'";
+        $type = "loadColumn";
+        return $this->getData($select, $type);
+    }
+
+    public function printContacts(){
+        $points = $this->getPoints();
+
+        foreach($points as $point){
+            echo '       
+            <div class="kont">
+                <p class="k-adr">г. ' . $point->name . ', ' . $point->address . '</p>
+                <p class="k-tel">';
+                    if($point->second_phone){
+                        echo $point->phone . ' | ' . $point->second_phone;
+                    }else{
+                        echo $point->phone;
+                    }
+
+                echo '</p>
+                <p class="k-mail">' . $point->email . '</p>
+                <p class="k-time">' . $point->time . '</p>
+            </div>';
+        }
+    }
 }
